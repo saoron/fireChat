@@ -1,17 +1,8 @@
 <ion-view>
-  <ion-content class="padding">
+  <ion-content scroll="false">
    
+ 	<textarea class="full" id="msgsMain" ng-model="msgs.mainMessage"  ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" ></textarea>
 
-  <ion-list>
-    <ion-item ng-repeat="msg in messages">
-     {{msg}}!
-    </ion-item>
-  </ion-list>
-
-
-
-
-    <button class="btn- btn-info" ng-click="addNewMessage()">+</button>
 
   </ion-content>
 </ion-view>

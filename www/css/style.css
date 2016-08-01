@@ -18,3 +18,37 @@
     top: 14px;
     font-size: 33px;
 }
+.reset{
+	float: right;
+    margin: 24px;
+    margin-top: 0;
+    font-size: 40px;
+}
+.full{
+    height: 570px;
+    width: 100%;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+.compose{
+	position: absolute;
+    bottom: 70px;
+    width: 100%;
+}
+.compose label{
+	float: left;
+	padding-left: 5px;
+}
+.compose input{
+	float: right;
+    border: 1px solid #333;
+	width: 56%;
+    margin-right: 6px;
+    margin-top: -10px;
+    border-radius: 4px;
+}
+.compose button{
+    float: right;
+    margin-top: -5px;
+}

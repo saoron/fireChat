@@ -1,28 +1,14 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, $firebaseArray) {
+.controller('DashCtrl', function($scope, messageMain) {
 
 
-    var messagesRef = firebase.database().ref().child("messages");
-    
-    // all server changes are applied in realtime
-    $scope.messages = $firebaseArray(messagesRef);
-
-
-  $scope.addNewMessage =function(){
-
-
-      $scope.messages.push('xxxx')    
-
-
-  }
-
-
+  messageMain().$bindTo($scope, "msgs")
 
 
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
+.controller('ChatsCtrl', function($scope, userMessages) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -31,10 +17,25 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
+  //$scope.chats = Chats.all();
+  userMessages().$bindTo($scope, "userMessages")
+
+
+  $scope.sendMsg = function(){
+
+
+    var ref = firebase.database().ref("userMessages");
+    ref.push({ 'text': $scope.msgBody, 'pic': $scope.randPic() });
+    $scope.msgBody = '';
+
+
+
+  }
+
+  $scope.randPic = function(){
+    return parseInt(Math.random() * (5 - 1) + 1);
+  }
+
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
