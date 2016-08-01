@@ -5,6 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+var firebaseUrl = "https://firechat-5d40f.firebaseio.com/";
+
 angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 'starter.services', 'firebase'])
 
 .run(function($ionicPlatform, $rootScope) {
@@ -21,8 +23,16 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
       StatusBar.styleDefault();
     }
 
+    //Initialize firebase
+    var config = {
+      apiKey: "AIzaSyCvROqOu55ds5UZL6x5VDQrziA_YIliOzo",
+      authDomain: "firechat-5d40f.firebaseapp.com",
+      databaseURL: "https://firechat-5d40f.firebaseio.com",
+      storageBucket: "firechat-5d40f.appspot.com",
+    };
+    firebase.initializeApp(config);
 
-    $rootScope.firebaseUrl = 'https://firechat-5d40f.firebaseio.com/';
+    $rootScope.firebaseUrl = firebaseUrl;
     $rootScope.displayName = null;
 
 
@@ -76,12 +86,12 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.tic', {
+    url: '/tic',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-tic': {
+        templateUrl: 'templates/tab-tic.html',
+        controller: 'TicCtrl'
       }
     }
   });

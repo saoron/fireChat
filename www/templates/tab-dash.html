@@ -2,11 +2,16 @@
   <ion-content class="padding">
    
 
+  <ion-list>
+    <ion-item ng-repeat="msg in messages">
+     {{msg}}!
+    </ion-item>
+  </ion-list>
 
-    {{message}}
 
 
 
+    <button class="btn- btn-info" ng-click="addNewMessage()">+</button>
 
   </ion-content>
 </ion-view>

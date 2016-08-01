@@ -2,3 +2,19 @@
 	background-color:  #ffeca5;
 	border-bottom: 0 !important;
 }
+
+.ticBoard{
+	max-width: 400px;
+	margin: auto;
+	margin-top: 150px;
+}
+.ticBoard .item{
+    height: 90px;
+}
+.ticBoard span{
+	text-align: center;
+    position: relative;
+    left: 31px;
+    top: 14px;
+    font-size: 33px;
+}

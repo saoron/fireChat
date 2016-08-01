@@ -1,0 +1,22 @@
+<ion-view view-title="Tic tac toe" ng-init="showPopup()">
+  <ion-content>
+
+  		<h1 class="text-center" ng-show="name"> Hey {{name}}</h1>
+
+        <div class="row ticBoard" ng-repeat="row in [0,1,2]" >
+
+            <div class="col" ng-repeat="column in [0,1,2]">
+
+                <div class="item item-button-right" ng-click="cellClick(row,column)" >
+                	<span>{{board[row][column]}}</span>
+                </div>
+            </div>             
+
+        </div>
+    </div>
+
+
+    <button ng-click="resetBoard()">Reset</button>
+
+  </ion-content>
+</ion-view>
