@@ -9,15 +9,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ChatsCtrl', function($scope, userMessages) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
 
-  //$scope.chats = Chats.all();
   userMessages().$bindTo($scope, "userMessages")
 
 
@@ -25,21 +17,21 @@ angular.module('starter.controllers', [])
 
 
     var ref = firebase.database().ref("userMessages");
-    ref.push({ 'text': $scope.msgBody, 'pic': $scope.randPic() });
+    ref.push({ 'text': $scope.msgBody, 'pic': $scope.randPic(1,5) });
     $scope.msgBody = '';
 
 
 
   }
-
-  $scope.randPic = function(){
-    return parseInt(Math.random() * (5 - 1) + 1);
+  //generate random number between min & max
+  $scope.randPic = function(min, max){
+    return parseInt(Math.random() * (max - min) + min);
   }
 
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('ChatDetailCtrl', function($scope, $stateParams) {
+  
 })
 
 
