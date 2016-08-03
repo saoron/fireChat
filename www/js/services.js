@@ -4,14 +4,14 @@ angular.module('starter.services', ['firebase'])
 
 
 .factory("messageMain", ["$firebaseObject",
-  function($firebaseObject) {
+  function(firebaseArray) {
     return function() {
       // create a reference to the database node where we will store our data
       var ref = firebase.database().ref("msgs");
 
 
       // return it as a synchronized object
-      return $firebaseObject(ref);
+      return firebaseArray(ref);
     }
   }
 ])
@@ -28,9 +28,6 @@ angular.module('starter.services', ['firebase'])
     }
   }
 ])
-
-
-
 
 
 

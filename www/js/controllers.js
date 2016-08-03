@@ -8,9 +8,11 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ChatsCtrl', function($scope, userMessages) {
+.controller('ChatsCtrl', function($scope, $firebaseArray) {
 
-  userMessages().$bindTo($scope, "userMessages")
+  // userMessages().$bindTo($scope, "userMessages")
+  var userMessages = firebase.database().ref().child("userMessages");
+  $scope.userMessages = $firebaseArray(userMessages);
 
 
   $scope.sendMsg = function(){

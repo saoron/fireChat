@@ -1,7 +1,7 @@
 <ion-view view-title="Chats">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in userMessages" type="item-text-wrap" >
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in userMessages | orderBy:'key':true" type="item-text-wrap" >
       <img ng-src="img/{{chat.pic}}.gif">
         <p>{{chat.text}}</p>
 
